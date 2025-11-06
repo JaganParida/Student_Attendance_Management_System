@@ -1,0 +1,36 @@
+<mat-toolbar class="public-toolbar navbar-light">
+  
+  <mat-icon color="primary">school</mat-icon>
+  <span class="app-title">AttendX</span>
+
+  <span class="toolbar-spacer"></span>
+
+  <div class="nav-links">
+    <a mat-button routerLink="/home">Home</a>
+    <a mat-button routerLink="/about">About</a>
+  </div>
+
+  <div *ngIf="isLoggedIn; else loginButton">
+    <button mat-raised-button color="primary" (click)="goToApp()">
+      <mat-icon>dashboard</mat-icon>
+      Go to App
+    </button>
+  </div>
+
+  <ng-template #loginButton>
+    <a mat-stroked-button routerLink="/login" class="login-button">
+      Login
+    </a>
+  </ng-template>
+
+</mat-toolbar>
+
+<div class="page-wrapper">
+  <main class="public-content">
+    <router-outlet></router-outlet>
+  </main>
+
+  <footer class="footer-section">
+    <p>© 2025 Student Attendance Management System. All rights reserved.</p>
+  </footer>
+</div>

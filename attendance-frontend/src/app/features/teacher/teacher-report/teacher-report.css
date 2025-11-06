@@ -1,0 +1,29 @@
+.chart-card {
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+/* We need to override the chart's text color to be visible in dark mode */
+:host ::ng-deep .ngx-charts text {
+  fill: #000 !important;
+}
+
+/* Status colors for the table */
+:host ::ng-deep .status-present {
+  color: green;
+  font-weight: bold;
+}
+:host ::ng-deep .status-absent {
+  color: red;
+  font-weight: bold;
+}
+:host ::ng-deep .status-late {
+  color: orange;
+  font-weight: bold;
+}

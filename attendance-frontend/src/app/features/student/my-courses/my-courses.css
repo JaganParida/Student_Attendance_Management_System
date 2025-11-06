@@ -1,0 +1,15 @@
+/* Section Title for "My Enrolled Courses" */
+/* Note: We are removing .section-title and using the global .page-title now */
+
+/* Course Card Grid */
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.course-card {
+  width: 100%;
+}
+
+/* All the old .stats-container, .stat-card, etc. styles are GONE */

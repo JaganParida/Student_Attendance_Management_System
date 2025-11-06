@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>{{ isEditMode ? 'Manage Course Assignments' : 'Add New Course' }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="courseForm" class="dialog-form">
+    
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Course Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Course Code (e.g., CS101)</mat-label>
+      <input matInput formControlName="courseCode">
+    </mat-form-field>
+
+    <ng-container *ngIf="isEditMode">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Assign Teacher</mat-label>
+        <mat-select formControlName="teacherId">
+          <mat-option *ngFor="let teacher of allTeachers" [value]="teacher.id">
+            {{teacher.user.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Enroll Students</mat-label>
+        <mat-select formControlName="studentIds" multiple> <mat-option *ngFor="let student of allStudents" [value]="student.id">
+            {{student.user.name}} ({{student.studentIdNumber}})
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </ng-container>
+
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!courseForm.valid">Save</button>
+</div>

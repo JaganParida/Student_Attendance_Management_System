@@ -1,0 +1,48 @@
+/* This card holds the main text */
+.about-card {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 16px;
+  color: #333;
+}
+
+.about-card p {
+  margin-bottom: 16px;
+}
+
+.final-paragraph {
+  margin-bottom: 0 !important;
+}
+
+/* This title separates the sections */
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* --- Feature Card Grid Styles --- */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  text-align: left;
+}
+
+/* Icon Avatar Styles */
+[mat-card-avatar] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  padding: 8px;
+  width: 40px;
+  height: 40px;
+}
+/* Role-based icon colors */
+.icon-admin { background-color: #D32F2F; } /* Red */
+.icon-teacher { background-color: #388E3C; } /* Green */
+.icon-student { background-color: #1976D2; } /* Blue */

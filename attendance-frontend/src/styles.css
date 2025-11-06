@@ -1,0 +1,70 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Default Angular Material styles */
+html, body { 
+  height: 100%; 
+}
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+}
+
+/* Global styles for our admin/teacher/student pages */
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.page-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.table-container {
+  width: 100%;
+}
+
+.mat-table {
+  width: 100%;
+}
+
+/* Error snackbar style */
+.error-snackbar {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+/* Dialog form styles */
+.dialog-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+/* Set the main application background to a professional light gray */
+.mat-sidenav-content {
+  background-color: #f4f7fa; /* A clean, light gray */
+}
+
+/* Make all MatCard components have a clean white background
+   and a modern, subtle shadow. This makes them "float".
+*/
+mat-card {
+  background: #ffffff !important; /* Force white background */
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+}
+
+/* Make tables blend in with cards */
+.mat-elevation-z8 {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05) !important;
+}

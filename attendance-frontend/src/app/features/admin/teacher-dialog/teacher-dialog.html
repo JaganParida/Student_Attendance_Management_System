@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>{{ isEditMode ? 'Edit Teacher' : 'Add New Teacher' }}</h1>
+<div mat-dialog-content>
+  <form [formGroup]="teacherForm" class="dialog-form">
+    
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Full Name</mat-label>
+      <input matInput formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" type="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Faculty ID Number (e.g., F1001)</mat-label>
+      <input matInput formControlName="idNumber">
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!isEditMode" appearance="fill" class="full-width">
+      <mat-label>Password</mat-label>
+      <input matInput formControlName="password" type="password">
+    </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="onSave()" [disabled]="!teacherForm.valid">Save</button>
+</div>

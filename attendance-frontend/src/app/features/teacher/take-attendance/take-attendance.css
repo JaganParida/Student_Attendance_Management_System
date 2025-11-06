@@ -1,0 +1,52 @@
+.date-picker {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.student-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-row {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.student-row.header {
+  font-weight: bold;
+  background-color: #f9f9f9;
+}
+
+.student-name {
+  flex: 1 1 40%;
+}
+
+.status-options {
+  flex: 1 1 60%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+/* --- NEW STYLES --- */
+.locked-message {
+  display: flex;
+  align-items: center;
+  color: #777;
+  font-style: italic;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+}
+
+.locked-message mat-icon {
+  margin-right: 8px;
+}
+/* --- END OF NEW STYLES --- */

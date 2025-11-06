@@ -1,0 +1,12 @@
+.profile-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* On larger screens, put cards side-by-side */
+@media (min-width: 768px) {
+  .profile-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}

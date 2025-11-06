@@ -1,0 +1,83 @@
+<mat-card class="welcome-card">
+  <mat-card-header>
+    <mat-card-title>Welcome!</mat-card-title>
+    <mat-card-subtitle>You are logged in to the Student Attendance Management System.</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Please use the menu on the left to navigate to your features.</p>
+  </mat-card-content>
+</mat-card>
+
+<div *ngIf="isAdmin" class="stats-container">
+  <mat-card class="stat-card">
+    <mat-card-header>
+      <div mat-card-avatar class="stat-icon admin-student">
+        <mat-icon>school</mat-icon>
+      </div>
+      <mat-card-title>{{ adminStudentCount }}</mat-card-title>
+      <mat-card-subtitle>Total Students</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+  <mat-card class="stat-card">
+    <mat-card-header>
+      <div mat-card-avatar class="stat-icon admin-teacher">
+        <mat-icon>person</mat-icon>
+      </div>
+      <mat-card-title>{{ adminTeacherCount }}</mat-card-title>
+      <mat-card-subtitle>Total Teachers</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+  <mat-card class="stat-card">
+    <mat-card-header>
+      <div mat-card-avatar class="stat-icon admin-course">
+        <mat-icon>book</mat-icon>
+      </div>
+      <mat-card-title>{{ adminCourseCount }}</mat-card-title>
+      <mat-card-subtitle>Total Courses</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+
+<div *ngIf="isTeacher" class="stats-container">
+  <mat-card class="stat-card">
+    <mat-card-header>
+      <div mat-card-avatar class="stat-icon teacher-course">
+        <mat-icon>book</mat-icon>
+      </div>
+      <mat-card-title>{{ teacherCourseCount }}</mat-card-title>
+      <mat-card-subtitle>Assigned Courses</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+  <mat-card class="stat-card">
+    <mat-card-header>
+      <div mat-card-avatar class="stat-icon teacher-student">
+        <mat-icon>school</mat-icon>
+      </div>
+      <mat-card-title>{{ teacherStudentCount }}</mat-card-title>
+      <mat-card-subtitle>Total Enrolled Students</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+
+<div *ngIf="isStudent && studentSummary" class="stats-container">
+  <mat-card class="stat-card">
+    <mat-card-header>
+      <div mat-card-avatar class="stat-icon student-course">
+        <mat-icon>book</mat-icon>
+      </div>
+      <mat-card-title>{{ studentCourseCount }}</mat-card-title>
+      <mat-card-subtitle>Enrolled Courses</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+  <mat-card class="stat-card">
+    <mat-card-header>
+      <div mat-card-avatar class="stat-icon student-attendance">
+        <mat-icon>pie_chart</mat-icon>
+      </div>
+      <mat-card-title>{{ studentSummary.percentage | number:'1.0-1' }}%</mat-card-title>
+      <mat-card-subtitle>Overall Attendance</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>

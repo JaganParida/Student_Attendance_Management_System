@@ -1,0 +1,48 @@
+.welcome-card {
+  margin-bottom: 20px;
+}
+
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  padding-bottom: 0;
+}
+
+.stat-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  padding: 10px;
+  margin: -8px 8px 0 0; 
+}
+
+.stat-icon mat-icon {
+  font-size: 28px;
+  height: 28px;
+  width: 28px;
+}
+
+/* Admin Icon colors */
+.stat-icon.admin-student { background-color: #3f51b5; } /* Indigo */
+.stat-icon.admin-teacher { background-color: #4caf50; } /* Green */
+.stat-icon.admin-course { background-color: #ff9800; }  /* Orange */
+
+/* --- ADD NEW TEACHER ICON COLORS --- */
+.stat-icon.teacher-course { background-color: #3f51b5; } /* Indigo */
+.stat-icon.teacher-student { background-color: #4caf50; } /* Green */
+
+/* Student Icon colors */
+.stat-icon.student-course { background-color: #3f51b5; } /* Indigo */
+.stat-icon.student-attendance { background-color: #4caf50; } /* Green */
+
+.stat-card mat-card-title {
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 1;
+}

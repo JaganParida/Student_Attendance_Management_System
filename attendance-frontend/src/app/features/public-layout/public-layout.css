@@ -1,0 +1,68 @@
+.public-toolbar {
+  display: flex;
+}
+
+/* This is the white, sticky navbar */
+.navbar-light {
+  background: #ffffff;
+  color: #333;
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.06), 
+              0 4px 5px 0 rgba(0,0,0,.04), 
+              0 1px 10px 0 rgba(0,0,0,.03);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.app-title {
+  font-weight: 500;
+  color: #3f51b5;
+  margin-left: 8px;
+}
+
+.nav-links {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  margin: 0 5px;
+  color: #333;
+  opacity: 0.9;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.login-button {
+  margin-left: 10px;
+  color: #3f51b5;
+  border-color: #3f51b5;
+}
+
+/* --- STICKY FOOTER LOGIC --- */
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  /* Full viewport height minus the 64px navbar */
+  min-height: calc(100vh - 64px); 
+}
+
+.public-content {
+  flex-grow: 1; /* This makes the main content take all available space */
+  /* We let the components inside control their own background and padding */
+}
+
+.footer-section {
+  background-color: #303030; /* Dark gray */
+  color: #e0e0e0; /* Light gray text */
+  padding: 20px;
+  text-align: center;
+  font-weight: 300;
+  flex-shrink: 0; /* Prevents the footer from shrinking */
+}
+
+.footer-section p {
+  margin: 0;
+}

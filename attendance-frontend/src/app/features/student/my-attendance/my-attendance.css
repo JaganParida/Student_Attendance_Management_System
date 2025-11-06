@@ -1,0 +1,62 @@
+/* Add colors for the status */
+.status-present {
+  color: green;
+  font-weight: bold;
+}
+
+.status-absent {
+  color: red;
+  font-weight: bold;
+}
+
+.status-late {
+  color: orange;
+  font-weight: bold;
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #555;
+  margin-top: -15px;
+  margin-bottom: 20px;
+}
+
+.summary-card {
+  margin-bottom: 20px;
+}
+
+.summary-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 16px 0;
+}
+
+.summary-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.summary-item .value {
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.summary-item .label {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.summary-item.main .value {
+  font-size: 3rem;
+  font-weight: 500;
+  color: #3f51b5; /* Primary color */
+}
+
+.summary-item.main .label {
+  font-size: 1rem;
+  color: #3f51b5;
+}

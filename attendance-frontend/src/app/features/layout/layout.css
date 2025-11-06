@@ -1,0 +1,94 @@
+.sidenav-container {
+  height: calc(100vh - 64px);
+}
+
+/* --- Dark Sidebar Style --- */
+.sidenav {
+  width: 250px;
+  background: #2c3e50; 
+  border-right: none;
+}
+.sidenav-toolbar {
+  background: #34495e; 
+  color: #ffffff;
+  font-weight: 500;
+  border-bottom: 1px solid #4a627a;
+}
+
+/* --- SIDEBAR FIX (Text & Icon Colors) --- */
+/* Target the text SPAN directly */
+.sidenav a span {
+  color: #ecf0f1 !important; /* Force light white text */
+  transition: color 0.2s ease-in-out;
+}
+/* Target the icon directly */
+.sidenav a mat-icon {
+  color: #ecf0f1 !important; /* Force light white icon */
+  transition: color 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.sidenav a:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Active link styles */
+.active-link {
+  background: #3f51b5; /* Primary color */
+  color: #ffffff !important; /* Force bright white */
+  font-weight: 500;
+}
+.active-link span { /* Target active link text */
+  color: #ffffff !important; 
+}
+.active-link mat-icon { /* Target active link icon */
+  color: #ffffff !important;
+}
+/* --- End of SIDEBAR FIX --- */
+
+
+/* --- Dark Top Navbar Style --- */
+.toolbar.navbar-dark {
+  background: #34495e; 
+  color: #ffffff;
+  box-shadow: 0 3px 5px -1px #0003, 0 6px 10px #00000024, 0 1px 18px #0000001f;
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.app-title {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+/* --- TOP NAVBAR USER MENU FIX --- */
+/* Target the button text and icon directly */
+.user-menu-button, 
+.user-menu-button mat-icon,
+.user-menu-button span { /* Added span here for good measure */
+  text-transform: none;
+  font-size: 14px;
+  color: #ffffff !important; 
+}
+/* --- End of TOP NAVBAR USER MENU FIX --- */
+
+.user-menu-button .user-name {
+  display: none; 
+}
+@media (min-width: 768px) {
+  .user-menu-button .user-name {
+    display: inline;
+    margin: 0 5px;
+  }
+}
+
+.content-wrapper {
+  padding: 24px;
+}

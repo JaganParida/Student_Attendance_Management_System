@@ -1,0 +1,83 @@
+<h1 class="page-title">Teacher Dashboard</h1>
+
+<div class="stats-container">
+  <mat-card class="stat-card">
+    <mat-card-header>
+      <div mat-card-avatar class="stat-icon course">
+        <mat-icon>book</mat-icon>
+      </div>
+      <mat-card-title>{{ totalCourses }}</mat-card-title>
+      <mat-card-subtitle>Assigned Courses</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card class="stat-card">
+    <mat-card-header>
+      <div mat-card-avatar class="stat-icon student">
+        <mat-icon>school</mat-icon>
+      </div>
+      <mat-card-title>{{ totalStudents }}</mat-card-title>
+      <mat-card-subtitle>Total Enrolled Students</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+<h2 class="section-title">My Courses</h2>
+<div class="mat-elevation-z8 table-container">
+  <table mat-table [dataSource]="dataSource" class="mat-table">
+
+    <ng-container matColumnDef="courseCode">
+      <th mat-header-cell *matHeaderCellDef> Course Code </th>
+      <td mat-cell *matCellDef="let course"> {{course.courseCode}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Course Name </th>
+      <td mat-cell *matCellDef="let course"> {{course.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="studentCount">
+      <th mat-header-cell *matHeaderCellDef> Enrolled Students </th>
+      <td mat-cell *matCellDef="let course"> {{course.students.length}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let course">
+        
+        <button 
+          *ngIf="hasAttendanceToday(course.id)"
+          mat-raised-button 
+          color="primary" 
+          (click)="manageAttendance(course.id)" 
+          class="action-button">
+          <mat-icon>edit_calendar</mat-icon>
+          Manage Attendance
+        </button>
+
+        <button 
+          *ngIf="!hasAttendanceToday(course.id)"
+          mat-stroked-button 
+          color="primary" 
+          (click)="manageAttendance(course.id)" 
+          class="action-button">
+          <mat-icon>edit_calendar</mat-icon>
+          Take Attendance
+        </button>
+        
+        <button mat-button color="accent" (click)="viewReport(course.id)" class="action-button">
+          <mat-icon>assessment</mat-icon>
+          View Report
+        </button>
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">You have not been assigned to any courses yet.</td>
+    </tr>
+  </table>
+</div>

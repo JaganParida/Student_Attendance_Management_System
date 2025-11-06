@@ -1,0 +1,70 @@
+<div class="page-header">
+  <h1 class="page-title">Take Attendance: {{ course?.name }}</h1>
+</div>
+
+<mat-card>
+  <mat-card-content>
+    <form [formGroup]="attendanceForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field appearance="fill" class="date-picker">
+        <mat-label>Attendance Date</mat-label>
+        <input 
+          matInput 
+          [matDatepicker]="picker" 
+          formControlName="date"
+          (dateChange)="loadAttendanceForSelectedDate()"
+          [max]="maxDate"> <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <div formArrayName="records" class="student-list">
+        
+        <div class="student-row header">
+          <span class="student-name">Student Name</span>
+          <span class="status-options">Status</span>
+        </div>
+
+        <div *ngFor="let record of records.controls; let i = index" [formGroupName]="i" class="student-row">
+          
+          <span class="student-name">{{ record.get('studentName')?.value }}</span>
+
+          <mat-radio-group formControlName="status" class="status-options">
+            <mat-radio-button value="PRESENT" color="primary">Present</mat-radio-button>
+            <mat-radio-button value="ABSENT" color="warn">Absent</mat-radio-button>
+            <mat-radio-button value="LATE" color="accent">Late</mat-radio-button>
+          </mat-radio-group>
+
+        </div>
+      </div>
+
+      <div class="actions">
+        
+        <button 
+          *ngIf="isEditMode && !isLocked"
+          mat-raised-button 
+          color="primary" 
+          type="submit"
+          [disabled]="!attendanceForm.valid">
+          Save Attendance
+        </button>
+
+        <button 
+          *ngIf="!isEditMode && hasExistingData && !isLocked"
+          mat-stroked-button 
+          color="primary" 
+          type="button"
+          (click)="onEnableUpdates()">
+          <mat-icon>edit</mat-icon>
+          Update Attendance
+        </button>
+
+        <div *ngIf="isLocked" class="locked-message" matTooltip="Attendance can only be modified for today or yesterday.">
+          <mat-icon>lock</mat-icon>
+          <span>Records are locked</span>
+        </div>
+
+      </div>
+
+    </form>
+  </mat-card-content>
+</mat-card>
